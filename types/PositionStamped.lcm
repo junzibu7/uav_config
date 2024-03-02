@@ -1,0 +1,9 @@
+package lcm_geometry_msgs;
+
+struct PositionStamped
+{
+    string   name;
+    boolean  enabled;
+    double   timestamp;
+    double   position[3];
+}

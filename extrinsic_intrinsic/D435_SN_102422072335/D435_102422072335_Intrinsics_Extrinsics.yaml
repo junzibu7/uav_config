@@ -1,0 +1,52 @@
+%YAML:1.0
+---
+Origin_location: "self"
+
+front_camera:
+  serial_no: "102422072335"
+  color_camera:
+    name: "D435_COLOR_CAM"
+    image_width: 640
+    image_height: 480
+    fx: 606.082
+    fy: 604.795
+    cx: 322.827
+    cy: 244.656
+    distortion_model: "plumb_bob"
+    D: [0.0, 0.0, 0.0, 0.0, 0.0]
+    # ENU坐标系 front x left y up z
+    T_body_cam: [1, 0, 0, 0.0,
+                 0, 1, 0, 0.0,
+                 0, 0, 1, 0.0,
+                 0, 0, 0, 1]
+
+  ir_camera:
+    name: "D435_IR_CAM"
+    IR_1:
+      image_width: 640
+      image_height: 480
+      fx: 381.866
+      fy: 381.866
+      cx: 316.761
+      cy: 239.285
+      distortion_model: "plumb_bob"
+      D: [0.0, 0.0, 0.0, 0.0, 0.0]
+      # camera图像坐标系, right x, down y, front z
+      T_camColor_camIR1:  [ 0.999, 0.0027, -0.0027, -0.0149,
+                            -0.0027, 0.999, -0.0039, -0.0002,
+                            0.0027, 0.0039, 0.999, -0.0002,
+                            0.000, 0.000, 0.000, 1.000 ]
+    IR_2:
+      image_width: 640
+      image_height: 480
+      fx: 381.866
+      fy: 381.866
+      cx: 316.761
+      cy: 239.285
+      distortion_model: "plumb_bob"
+      D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+      # camera图像坐标系, right x, down y, front z
+      T_camIR1_camIR2:  [1, 0, 0, 0.0499,
+                        0, 1, 0, 0,
+                        0, 0, 1, 0,
+                        0, 0, 0, 1]

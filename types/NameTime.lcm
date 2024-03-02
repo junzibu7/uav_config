@@ -1,0 +1,7 @@
+package lcm_std_msgs;
+
+struct NameTime
+{
+    string   name;
+    double   timestamp;
+}

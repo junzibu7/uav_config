@@ -1,0 +1,52 @@
+%YAML:1.0
+---
+Origin_location: "the top xyz stick center"
+
+front_camera:
+  serial_no: "215122251478"
+  color_camera:
+    name: "D455_COLOR_CAM"
+    image_width: 640
+    image_height: 480
+    fx: 385.149
+    fy: 384.247
+    cx: 327.235
+    cy: 238.010
+    distortion_model: "plumb_bob"
+    D: [-0.0, 0.0, 0.0, -0.0, -0.0]
+    # ENU坐标系 front x left y up z
+    T_body_cam: [1, 0, 0, 0.045,
+                 0, 1, 0, 0.025,
+                 0, 0, 1, -0.07,
+                 0, 0, 0, 1]
+
+  ir_camera:
+    name: "D455_IR_CAM"
+    IR_1:
+      image_width: 640
+      image_height: 480
+      fx: 392.716
+      fy: 392.716
+      cx: 325.720
+      cy: 238.462
+      distortion_model: "plumb_bob"
+      D: [0.0, 0.0, 0.0, 0.0, 0.0]
+      # camera图像坐标系, right x, down y, front z
+      T_camColor_camIR1:  [ 0.999, 0.003, -0.003, -0.0591,
+                            -0.003, 0.999, 0.000, -0.0002,
+                            0.003, 0.000, 0.999, 0.0003,
+                            0.000, 0.000, 0.000, 1.000 ]
+    IR_2:
+      image_width: 640
+      image_height: 480
+      fx: 392.716
+      fy: 392.716
+      cx: 325.720
+      cy: 238.462
+      distortion_model: "plumb_bob"
+      D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+      # camera图像坐标系, right x, down y, front z
+      T_camIR1_camIR2:  [ 1, 0, 0, -0.0952,
+                        0, 1, 0, 0,
+                        0, 0, 1, 0,
+                        0, 0, 0, 1 ]

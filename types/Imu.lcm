@@ -1,0 +1,18 @@
+package lcm_sensor_msgs;
+
+struct Imu
+{
+    string   name;
+    double   timestamp;
+    double   linear_acceleration[3];
+    double   angular_velocity[3];
+    Quaterniond   orientation;
+}
+
+struct Quaterniond
+{
+    double w;
+    double x;
+    double y;
+    double z;
+}
