@@ -78,7 +78,7 @@ struct ColorCamera{
    double cy{};
    std::string distortion_model;
    double D[5];
-   Eigen::Matrix4d T_boby_camColor;
+   Eigen::Matrix4d T_body_camColor;
 };
 
 struct InfracameraA{
@@ -172,10 +172,10 @@ struct ConfigParser{
           cameraA.color_camera.D[i] = color_camera_node["D"][i].as<double>();
         }
         std::vector<double> v_temp;
-        for (int i = 0; i < color_camera_node["T_boby_camColor"].size(); ++i) {
-            v_temp.emplace_back(color_camera_node["T_boby_camColor"][i].as<double>());
+        for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
+            v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
         }
-        convert_Eiegn_4d(cameraA.color_camera.T_boby_camColor, v_temp);
+        convert_Eiegn_4d(cameraA.color_camera.T_body_camColor, v_temp);
         ///<<<<<<<<<<<<<<< color camera
 
 
@@ -222,206 +222,206 @@ struct ConfigParser{
         std::cout << "Finish parse cameraA <<<< " << std::endl;
 
         std::cout << "Start parse cameraB >>>> " << std::endl;
-        ///================= cameraB parse =================///
-        YAML::Node cameraB_node = file_node["cameraB"];
-        cameraB.serial_no = cameraB_node["serial_no"].as<std::string>();
-        ///>>>>>>>>>>>>>>> color camera
-        YAML::Node color_camera_node = cameraB_node["color_camera"];
-        cameraB.color_camera.name = color_camera_node["name"].as<std::string>();
-        cameraB.color_camera.image_width = color_camera_node["image_width"].as<int>();
-        cameraB.color_camera.image_height = color_camera_node["image_height"].as<int>();
-        cameraB.color_camera.fx = color_camera_node["fx"].as<double>();
-        cameraB.color_camera.fy = color_camera_node["fy"].as<double>();
-        cameraB.color_camera.cx = color_camera_node["cx"].as<double>();
-        cameraB.color_camera.cy = color_camera_node["cy"].as<double>();
-        cameraB.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < color_camera_node["D"].size(); ++i) {
-          cameraB.color_camera.D[i] = color_camera_node["D"][i].as<double>();
-        }
-        std::vector<double> v_temp;
-        for (int i = 0; i < color_camera_node["T_boby_camColor"].size(); ++i) {
-            v_temp.emplace_back(color_camera_node["T_boby_camColor"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraB.color_camera.T_boby_camColor, v_temp);
-        ///<<<<<<<<<<<<<<< color camera
+//         ///================= cameraB parse =================///
+//         YAML::Node cameraB_node = file_node["cameraB"];
+//         cameraB.serial_no = cameraB_node["serial_no"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> color camera
+//         YAML::Node color_camera_node = cameraB_node["color_camera"];
+//         cameraB.color_camera.name = color_camera_node["name"].as<std::string>();
+//         cameraB.color_camera.image_width = color_camera_node["image_width"].as<int>();
+//         cameraB.color_camera.image_height = color_camera_node["image_height"].as<int>();
+//         cameraB.color_camera.fx = color_camera_node["fx"].as<double>();
+//         cameraB.color_camera.fy = color_camera_node["fy"].as<double>();
+//         cameraB.color_camera.cx = color_camera_node["cx"].as<double>();
+//         cameraB.color_camera.cy = color_camera_node["cy"].as<double>();
+//         cameraB.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < color_camera_node["D"].size(); ++i) {
+//           cameraB.color_camera.D[i] = color_camera_node["D"][i].as<double>();
+//         }
+//         std::vector<double> v_temp;
+//         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
+//             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraB.color_camera.T_body_camColor, v_temp);
+//         ///<<<<<<<<<<<<<<< color camera
 
 
-        ///>>>>>>>>>>>>>>> ir camera
-        YAML::Node ir_camera_node = cameraB_node["ir_camera"];
-        cameraB.ir_camera.name = ir_camera_node["name"].as<std::string>();
-        ///>>>>>>>>>>>>>>> IR 1 camera
-        YAML::Node IR_1_node = ir_camera_node["IR_1"];
-        cameraB.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
-        cameraB.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
-        cameraB.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
-        cameraB.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
-        cameraB.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
-        cameraB.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
-        cameraB.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_1_node["D"].size(); ++i) {
-          cameraB.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
-            v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraB.ir_camera.cam1.T_camColor_camIR1, v_temp);
-        ///<<<<<<<<<<<<<<< IR 1 camera
-        ///>>>>>>>>>>>>>>> IR 2 camera
-        YAML::Node IR_2_node = ir_camera_node["IR_2"];
-        cameraB.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
-        cameraB.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
-        cameraB.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
-        cameraB.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
-        cameraB.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
-        cameraB.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
-        cameraB.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_2_node["D"].size(); ++i) {
-          cameraB.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
-            v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraB.ir_camera.cam2.T_camIR1_camIR2, v_temp);
-        ///<<<<<<<<<<<<<<< IR 2 camera
-        ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraB <<<< " << std::endl;
+//         ///>>>>>>>>>>>>>>> ir camera
+//         YAML::Node ir_camera_node = cameraB_node["ir_camera"];
+//         cameraB.ir_camera.name = ir_camera_node["name"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> IR 1 camera
+//         YAML::Node IR_1_node = ir_camera_node["IR_1"];
+//         cameraB.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
+//         cameraB.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
+//         cameraB.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
+//         cameraB.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
+//         cameraB.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
+//         cameraB.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
+//         cameraB.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_1_node["D"].size(); ++i) {
+//           cameraB.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
+//             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraB.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 1 camera
+//         ///>>>>>>>>>>>>>>> IR 2 camera
+//         YAML::Node IR_2_node = ir_camera_node["IR_2"];
+//         cameraB.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
+//         cameraB.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
+//         cameraB.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
+//         cameraB.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
+//         cameraB.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
+//         cameraB.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
+//         cameraB.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_2_node["D"].size(); ++i) {
+//           cameraB.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
+//             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraB.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 2 camera
+//         ///<<<<<<<<<<<<<<< ir camera
+//         std::cout << "Finish parse cameraB <<<< " << std::endl;
 
-        std::cout << "Start parse cameraC >>>> " << std::endl;
-        ///================= cameraC parse =================///
-        YAML::Node cameraC_node = file_node["cameraC"];
-        cameraC.serial_no = cameraC_node["serial_no"].as<std::string>();
-        ///>>>>>>>>>>>>>>> color camera
-        YAML::Node color_camera_node = cameraC_node["color_camera"];
-        cameraC.color_camera.name = color_camera_node["name"].as<std::string>();
-        cameraC.color_camera.image_width = color_camera_node["image_width"].as<int>();
-        cameraC.color_camera.image_height = color_camera_node["image_height"].as<int>();
-        cameraC.color_camera.fx = color_camera_node["fx"].as<double>();
-        cameraC.color_camera.fy = color_camera_node["fy"].as<double>();
-        cameraC.color_camera.cx = color_camera_node["cx"].as<double>();
-        cameraC.color_camera.cy = color_camera_node["cy"].as<double>();
-        cameraC.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < color_camera_node["D"].size(); ++i) {
-          cameraC.color_camera.D[i] = color_camera_node["D"][i].as<double>();
-        }
-        std::vector<double> v_temp;
-        for (int i = 0; i < color_camera_node["T_boby_camColor"].size(); ++i) {
-            v_temp.emplace_back(color_camera_node["T_boby_camColor"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraC.color_camera.T_boby_camColor, v_temp);
-        ///<<<<<<<<<<<<<<< color camera
-
-
-        ///>>>>>>>>>>>>>>> ir camera
-        YAML::Node ir_camera_node = cameraC_node["ir_camera"];
-        cameraC.ir_camera.name = ir_camera_node["name"].as<std::string>();
-        ///>>>>>>>>>>>>>>> IR 1 camera
-        YAML::Node IR_1_node = ir_camera_node["IR_1"];
-        cameraC.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
-        cameraC.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
-        cameraC.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
-        cameraC.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
-        cameraC.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
-        cameraC.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
-        cameraC.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_1_node["D"].size(); ++i) {
-          cameraC.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
-            v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraC.ir_camera.cam1.T_camColor_camIR1, v_temp);
-        ///<<<<<<<<<<<<<<< IR 1 camera
-        ///>>>>>>>>>>>>>>> IR 2 camera
-        YAML::Node IR_2_node = ir_camera_node["IR_2"];
-        cameraC.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
-        cameraC.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
-        cameraC.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
-        cameraC.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
-        cameraC.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
-        cameraC.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
-        cameraC.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_2_node["D"].size(); ++i) {
-          cameraC.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
-            v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraC.ir_camera.cam2.T_camIR1_camIR2, v_temp);
-        ///<<<<<<<<<<<<<<< IR 2 camera
-        ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraC <<<< " << std::endl;
+//         std::cout << "Start parse cameraC >>>> " << std::endl;
+//         ///================= cameraC parse =================///
+//         YAML::Node cameraC_node = file_node["cameraC"];
+//         cameraC.serial_no = cameraC_node["serial_no"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> color camera
+//         YAML::Node color_camera_node = cameraC_node["color_camera"];
+//         cameraC.color_camera.name = color_camera_node["name"].as<std::string>();
+//         cameraC.color_camera.image_width = color_camera_node["image_width"].as<int>();
+//         cameraC.color_camera.image_height = color_camera_node["image_height"].as<int>();
+//         cameraC.color_camera.fx = color_camera_node["fx"].as<double>();
+//         cameraC.color_camera.fy = color_camera_node["fy"].as<double>();
+//         cameraC.color_camera.cx = color_camera_node["cx"].as<double>();
+//         cameraC.color_camera.cy = color_camera_node["cy"].as<double>();
+//         cameraC.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < color_camera_node["D"].size(); ++i) {
+//           cameraC.color_camera.D[i] = color_camera_node["D"][i].as<double>();
+//         }
+//         std::vector<double> v_temp;
+//         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
+//             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraC.color_camera.T_body_camColor, v_temp);
+//         ///<<<<<<<<<<<<<<< color camera
 
 
-std::cout << "Start parse cameraD >>>> " << std::endl;
-        ///================= cameraD parse =================///
-        YAML::Node cameraD_node = file_node["cameraD"];
-        cameraD.serial_no = cameraD_node["serial_no"].as<std::string>();
-        ///>>>>>>>>>>>>>>> color camera
-        YAML::Node color_camera_node = cameraD_node["color_camera"];
-        cameraD.color_camera.name = color_camera_node["name"].as<std::string>();
-        cameraD.color_camera.image_width = color_camera_node["image_width"].as<int>();
-        cameraD.color_camera.image_height = color_camera_node["image_height"].as<int>();
-        cameraD.color_camera.fx = color_camera_node["fx"].as<double>();
-        cameraD.color_camera.fy = color_camera_node["fy"].as<double>();
-        cameraD.color_camera.cx = color_camera_node["cx"].as<double>();
-        cameraD.color_camera.cy = color_camera_node["cy"].as<double>();
-        cameraD.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < color_camera_node["D"].size(); ++i) {
-          cameraD.color_camera.D[i] = color_camera_node["D"][i].as<double>();
-        }
-        std::vector<double> v_temp;
-        for (int i = 0; i < color_camera_node["T_boby_camColor"].size(); ++i) {
-            v_temp.emplace_back(color_camera_node["T_boby_camColor"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraD.color_camera.T_boby_camColor, v_temp);
-        ///<<<<<<<<<<<<<<< color camera
+//         ///>>>>>>>>>>>>>>> ir camera
+//         YAML::Node ir_camera_node = cameraC_node["ir_camera"];
+//         cameraC.ir_camera.name = ir_camera_node["name"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> IR 1 camera
+//         YAML::Node IR_1_node = ir_camera_node["IR_1"];
+//         cameraC.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
+//         cameraC.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
+//         cameraC.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
+//         cameraC.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
+//         cameraC.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
+//         cameraC.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
+//         cameraC.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_1_node["D"].size(); ++i) {
+//           cameraC.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
+//             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraC.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 1 camera
+//         ///>>>>>>>>>>>>>>> IR 2 camera
+//         YAML::Node IR_2_node = ir_camera_node["IR_2"];
+//         cameraC.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
+//         cameraC.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
+//         cameraC.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
+//         cameraC.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
+//         cameraC.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
+//         cameraC.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
+//         cameraC.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_2_node["D"].size(); ++i) {
+//           cameraC.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
+//             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraC.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 2 camera
+//         ///<<<<<<<<<<<<<<< ir camera
+//         std::cout << "Finish parse cameraC <<<< " << std::endl;
 
 
-        ///>>>>>>>>>>>>>>> ir camera
-        YAML::Node ir_camera_node = cameraD_node["ir_camera"];
-        cameraD.ir_camera.name = ir_camera_node["name"].as<std::string>();
-        ///>>>>>>>>>>>>>>> IR 1 camera
-        YAML::Node IR_1_node = ir_camera_node["IR_1"];
-        cameraD.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
-        cameraD.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
-        cameraD.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
-        cameraD.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
-        cameraD.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
-        cameraD.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
-        cameraD.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_1_node["D"].size(); ++i) {
-          cameraD.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
-            v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraD.ir_camera.cam1.T_camColor_camIR1, v_temp);
-        ///<<<<<<<<<<<<<<< IR 1 camera
-        ///>>>>>>>>>>>>>>> IR 2 camera
-        YAML::Node IR_2_node = ir_camera_node["IR_2"];
-        cameraD.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
-        cameraD.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
-        cameraD.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
-        cameraD.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
-        cameraD.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
-        cameraD.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
-        cameraD.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
-        for (int i = 0; i < IR_2_node["D"].size(); ++i) {
-          cameraD.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
-        }
-        v_temp.clear();
-        for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
-            v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
-        }
-        convert_Eiegn_4d(cameraD.ir_camera.cam2.T_camIR1_camIR2, v_temp);
-        ///<<<<<<<<<<<<<<< IR 2 camera
-        ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraD <<<< " << std::endl;
+// std::cout << "Start parse cameraD >>>> " << std::endl;
+//         ///================= cameraD parse =================///
+//         YAML::Node cameraD_node = file_node["cameraD"];
+//         cameraD.serial_no = cameraD_node["serial_no"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> color camera
+//         YAML::Node color_camera_node = cameraD_node["color_camera"];
+//         cameraD.color_camera.name = color_camera_node["name"].as<std::string>();
+//         cameraD.color_camera.image_width = color_camera_node["image_width"].as<int>();
+//         cameraD.color_camera.image_height = color_camera_node["image_height"].as<int>();
+//         cameraD.color_camera.fx = color_camera_node["fx"].as<double>();
+//         cameraD.color_camera.fy = color_camera_node["fy"].as<double>();
+//         cameraD.color_camera.cx = color_camera_node["cx"].as<double>();
+//         cameraD.color_camera.cy = color_camera_node["cy"].as<double>();
+//         cameraD.color_camera.distortion_model = color_camera_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < color_camera_node["D"].size(); ++i) {
+//           cameraD.color_camera.D[i] = color_camera_node["D"][i].as<double>();
+//         }
+//         std::vector<double> v_temp;
+//         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
+//             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraD.color_camera.T_body_camColor, v_temp);
+//         ///<<<<<<<<<<<<<<< color camera
+
+
+//         ///>>>>>>>>>>>>>>> ir camera
+//         YAML::Node ir_camera_node = cameraD_node["ir_camera"];
+//         cameraD.ir_camera.name = ir_camera_node["name"].as<std::string>();
+//         ///>>>>>>>>>>>>>>> IR 1 camera
+//         YAML::Node IR_1_node = ir_camera_node["IR_1"];
+//         cameraD.ir_camera.cam1.image_width = IR_1_node["image_width"].as<int>();
+//         cameraD.ir_camera.cam1.image_height = IR_1_node["image_height"].as<int>();
+//         cameraD.ir_camera.cam1.fx = IR_1_node["fx"].as<double>();
+//         cameraD.ir_camera.cam1.fy = IR_1_node["fy"].as<double>();
+//         cameraD.ir_camera.cam1.cx = IR_1_node["cx"].as<double>();
+//         cameraD.ir_camera.cam1.cy = IR_1_node["cy"].as<double>();
+//         cameraD.ir_camera.cam1.distortion_model = IR_1_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_1_node["D"].size(); ++i) {
+//           cameraD.ir_camera.cam1.D[i] = IR_1_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
+//             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraD.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 1 camera
+//         ///>>>>>>>>>>>>>>> IR 2 camera
+//         YAML::Node IR_2_node = ir_camera_node["IR_2"];
+//         cameraD.ir_camera.cam2.image_width = IR_2_node["image_width"].as<int>();
+//         cameraD.ir_camera.cam2.image_height = IR_2_node["image_height"].as<int>();
+//         cameraD.ir_camera.cam2.fx = IR_2_node["fx"].as<double>();
+//         cameraD.ir_camera.cam2.fy = IR_2_node["fy"].as<double>();
+//         cameraD.ir_camera.cam2.cx = IR_2_node["cx"].as<double>();
+//         cameraD.ir_camera.cam2.cy = IR_2_node["cy"].as<double>();
+//         cameraD.ir_camera.cam2.distortion_model = IR_2_node["distortion_model"].as<std::string>();
+//         for (int i = 0; i < IR_2_node["D"].size(); ++i) {
+//           cameraD.ir_camera.cam2.D[i] = IR_2_node["D"][i].as<double>();
+//         }
+//         v_temp.clear();
+//         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
+//             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
+//         }
+//         convert_Eiegn_4d(cameraD.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         ///<<<<<<<<<<<<<<< IR 2 camera
+//         ///<<<<<<<<<<<<<<< ir camera
+//         std::cout << "Finish parse cameraD <<<< " << std::endl;
 
         std::cout << "Start parse T_cam_image >>>> " << std::endl;
         ///================= T_cam_image =================///
@@ -474,12 +474,12 @@ std::cout << "Start parse cameraD >>>> " << std::endl;
         //转为3行xN列的Eigen::Matrix3Xd
         ir_landmark.layout.resize(3, ir_landmark.number);
         convert_3xN(ir_landmark.layout, v_temp);
-        std::cout << "Start T_boby_IRLandmark >>>> " << std::endl;
+        std::cout << "Start T_marker_IRLandmark >>>> " << std::endl;
         v_temp.clear();
-        for (int i = 0; i < IRLandmarker_node["T_boby_IRLandmark"].size(); ++i) {
-            v_temp.emplace_back(IRLandmarker_node["T_boby_IRLandmark"][i].as<double>());
+        for (int i = 0; i < IRLandmarker_node["T_marker_IRLandmark"].size(); ++i) {
+            v_temp.emplace_back(IRLandmarker_node["T_marker_IRLandmark"][i].as<double>());
         }
-        convert_Eiegn_4d(ir_landmark.T_boby_IRLandmark, v_temp);
+        convert_Eiegn_4d(ir_landmark.T_marker_IRLandmark, v_temp);
         std::cout << "Finish parse IRLandmarker <<<< " << std::endl;
     }
 
@@ -506,9 +506,9 @@ std::cout << "Start parse cameraD >>>> " << std::endl;
 
     void print_all(){
         print_config_cameraA();
-        print_config_cameraB();
-        print_config_cameraC();
-        print_config_cameraD();
+        // print_config_cameraB();
+        // print_config_cameraC();
+        // print_config_cameraD();
         print_config_cam2image();
         print_config_imu();
         print_config_marker();
@@ -516,12 +516,12 @@ std::cout << "Start parse cameraD >>>> " << std::endl;
     }
 
     void print_config_cameraA(){
-        std::cout << "///============== camera 1 =================///" << std::endl;
+        std::cout << "///============== cameraA =================///" << std::endl;
         std::cout << "serial_no: " << cameraA.serial_no.c_str() << std::endl;
         std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
         std::cout << "fx: " << cameraA.color_camera.fx << "\tfy: " << cameraA.color_camera.fy <<
         "\tcx: " << cameraA.color_camera.cx << "\tcy: " << cameraA.color_camera.cy << std::endl;
-        std::cout << "T_boby_camColor: " << std::endl << cameraA.color_camera.T_boby_camColor.matrix() << std::endl;
+        std::cout << "T_body_camColor: " << std::endl << cameraA.color_camera.T_body_camColor.matrix() << std::endl;
         std::cout << std::endl;
 
         std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
@@ -538,74 +538,74 @@ std::cout << "Start parse cameraD >>>> " << std::endl;
         std::cout << std::endl;
     }
 
-    void print_config_cameraB(){
-        std::cout << "///============== camera 2 =================///" << std::endl;
-        std::cout << "serial_no: " << cameraB.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.color_camera.fx << "\tfy: " << cameraB.color_camera.fy <<
-        "\tcx: " << cameraB.color_camera.cx << "\tcy: " << cameraB.color_camera.cy << std::endl;
-        std::cout << "T_boby_camColor: " << std::endl << cameraB.color_camera.T_boby_camColor.matrix() << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraB(){
+    //     std::cout << "///============== cameraB =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraB.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.color_camera.fx << "\tfy: " << cameraB.color_camera.fy <<
+    //     "\tcx: " << cameraB.color_camera.cx << "\tcy: " << cameraB.color_camera.cy << std::endl;
+    //     std::cout << "T_body_camColor: " << std::endl << cameraB.color_camera.T_body_camColor.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.ir_camera.cam1.fx << "\tfy: " << cameraB.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraB.ir_camera.cam1.cx << "\tcy: " << cameraB.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraB.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.ir_camera.cam1.fx << "\tfy: " << cameraB.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraB.ir_camera.cam1.cx << "\tcy: " << cameraB.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraB.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.ir_camera.cam2.fx << "\tfy: " << cameraB.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraB.ir_camera.cam2.cx << "\tcy: " << cameraB.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraB.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.ir_camera.cam2.fx << "\tfy: " << cameraB.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraB.ir_camera.cam2.cx << "\tcy: " << cameraB.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraB.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cameraC(){
-        std::cout << "///============== camera 1 =================///" << std::endl;
-        std::cout << "serial_no: " << cameraC.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.color_camera.fx << "\tfy: " << cameraC.color_camera.fy <<
-        "\tcx: " << cameraC.color_camera.cx << "\tcy: " << cameraC.color_camera.cy << std::endl;
-        std::cout << "T_boby_camColor: " << std::endl << cameraC.color_camera.T_boby_camColor.matrix() << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraC(){
+    //     std::cout << "///============== cameraC =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraC.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.color_camera.fx << "\tfy: " << cameraC.color_camera.fy <<
+    //     "\tcx: " << cameraC.color_camera.cx << "\tcy: " << cameraC.color_camera.cy << std::endl;
+    //     std::cout << "T_body_camColor: " << std::endl << cameraC.color_camera.T_body_camColor.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.ir_camera.cam1.fx << "\tfy: " << cameraC.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraC.ir_camera.cam1.cx << "\tcy: " << cameraC.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraC.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.ir_camera.cam1.fx << "\tfy: " << cameraC.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraC.ir_camera.cam1.cx << "\tcy: " << cameraC.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraC.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.ir_camera.cam2.fx << "\tfy: " << cameraC.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraC.ir_camera.cam2.cx << "\tcy: " << cameraC.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraC.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.ir_camera.cam2.fx << "\tfy: " << cameraC.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraC.ir_camera.cam2.cx << "\tcy: " << cameraC.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraC.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cameraD(){
-        std::cout << "///============== camera 1 =================///" << std::endl;
-        std::cout << "serial_no: " << cameraD.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.color_camera.fx << "\tfy: " << cameraD.color_camera.fy <<
-        "\tcx: " << cameraD.color_camera.cx << "\tcy: " << cameraD.color_camera.cy << std::endl;
-        std::cout << "T_boby_camColor: " << std::endl << cameraD.color_camera.T_boby_camColor.matrix() << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraD(){
+    //     std::cout << "///============== cameraD =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraD.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.color_camera.fx << "\tfy: " << cameraD.color_camera.fy <<
+    //     "\tcx: " << cameraD.color_camera.cx << "\tcy: " << cameraD.color_camera.cy << std::endl;
+    //     std::cout << "T_body_camColor: " << std::endl << cameraD.color_camera.T_body_camColor.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.ir_camera.cam1.fx << "\tfy: " << cameraD.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraD.ir_camera.cam1.cx << "\tcy: " << cameraD.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraD.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.ir_camera.cam1.fx << "\tfy: " << cameraD.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraD.ir_camera.cam1.cx << "\tcy: " << cameraD.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraD.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.ir_camera.cam2.fx << "\tfy: " << cameraD.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraD.ir_camera.cam2.cx << "\tcy: " << cameraD.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraD.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.ir_camera.cam2.fx << "\tfy: " << cameraD.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraD.ir_camera.cam2.cx << "\tcy: " << cameraD.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraD.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
     void print_config_cam2image(){
         std::cout << "///============== T_cam_image =================///" << std::endl;
@@ -629,7 +629,7 @@ std::cout << "Start parse cameraD >>>> " << std::endl;
         std::cout << "///============== IRLandmark =================///" << std::endl;
         std::cout << "layout_name: \t" << ir_landmark.layout_name << std::endl;
         std::cout << "layout: \n" << ir_landmark.layout.matrix() << std::endl;
-        std::cout << "T_boby_IRLandmark: \n" << ir_landmark.T_boby_IRLandmark.matrix() << std::endl;
+        std::cout << "T_marker_IRLandmark: \n" << ir_landmark.T_marker_IRLandmark.matrix() << std::endl;
         std::cout << std::endl;
     }
 
