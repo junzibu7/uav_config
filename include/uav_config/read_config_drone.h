@@ -144,6 +144,7 @@ struct ConfigParser{
     Imu imu;
     Marker marker;
     IRLandmark ir_landmark;
+    Eigen::Matrix3d Vicon_correction;
 
     ConfigParser(const std::string& config_file){
         std::cout << "Config file is " << config_file << std::endl;
@@ -175,7 +176,7 @@ struct ConfigParser{
         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
         }
-        convert_Eiegn_4d(cameraA.color_camera.T_body_camColor, v_temp);
+        convert_Eigen_4d(cameraA.color_camera.T_body_camColor, v_temp);
         ///<<<<<<<<<<<<<<< color camera
 
 
@@ -198,7 +199,7 @@ struct ConfigParser{
         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
         }
-        convert_Eiegn_4d(cameraA.ir_camera.cam1.T_camColor_camIR1, v_temp);
+        convert_Eigen_4d(cameraA.ir_camera.cam1.T_camColor_camIR1, v_temp);
         ///<<<<<<<<<<<<<<< IR 1 camera
         ///>>>>>>>>>>>>>>> IR 2 camera
         YAML::Node IR_2_node = ir_camera_node["IR_2"];
@@ -216,7 +217,7 @@ struct ConfigParser{
         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
         }
-        convert_Eiegn_4d(cameraA.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+        convert_Eigen_4d(cameraA.ir_camera.cam2.T_camIR1_camIR2, v_temp);
         ///<<<<<<<<<<<<<<< IR 2 camera
         ///<<<<<<<<<<<<<<< ir camera
         std::cout << "Finish parse cameraA <<<< " << std::endl;
@@ -242,7 +243,7 @@ struct ConfigParser{
 //         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
 //             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraB.color_camera.T_body_camColor, v_temp);
+//         convert_Eigen_4d(cameraB.color_camera.T_body_camColor, v_temp);
 //         ///<<<<<<<<<<<<<<< color camera
 
 
@@ -265,7 +266,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
 //             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraB.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         convert_Eigen_4d(cameraB.ir_camera.cam1.T_camColor_camIR1, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 1 camera
 //         ///>>>>>>>>>>>>>>> IR 2 camera
 //         YAML::Node IR_2_node = ir_camera_node["IR_2"];
@@ -283,7 +284,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
 //             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraB.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         convert_Eigen_4d(cameraB.ir_camera.cam2.T_camIR1_camIR2, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 2 camera
 //         ///<<<<<<<<<<<<<<< ir camera
 //         std::cout << "Finish parse cameraB <<<< " << std::endl;
@@ -309,7 +310,7 @@ struct ConfigParser{
 //         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
 //             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraC.color_camera.T_body_camColor, v_temp);
+//         convert_Eigen_4d(cameraC.color_camera.T_body_camColor, v_temp);
 //         ///<<<<<<<<<<<<<<< color camera
 
 
@@ -332,7 +333,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
 //             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraC.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         convert_Eigen_4d(cameraC.ir_camera.cam1.T_camColor_camIR1, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 1 camera
 //         ///>>>>>>>>>>>>>>> IR 2 camera
 //         YAML::Node IR_2_node = ir_camera_node["IR_2"];
@@ -350,7 +351,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
 //             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraC.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         convert_Eigen_4d(cameraC.ir_camera.cam2.T_camIR1_camIR2, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 2 camera
 //         ///<<<<<<<<<<<<<<< ir camera
 //         std::cout << "Finish parse cameraC <<<< " << std::endl;
@@ -377,7 +378,7 @@ struct ConfigParser{
 //         for (int i = 0; i < color_camera_node["T_body_camColor"].size(); ++i) {
 //             v_temp.emplace_back(color_camera_node["T_body_camColor"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraD.color_camera.T_body_camColor, v_temp);
+//         convert_Eigen_4d(cameraD.color_camera.T_body_camColor, v_temp);
 //         ///<<<<<<<<<<<<<<< color camera
 
 
@@ -400,7 +401,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_1_node["T_camColor_camIR1"].size(); ++i) {
 //             v_temp.emplace_back(IR_1_node["T_camColor_camIR1"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraD.ir_camera.cam1.T_camColor_camIR1, v_temp);
+//         convert_Eigen_4d(cameraD.ir_camera.cam1.T_camColor_camIR1, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 1 camera
 //         ///>>>>>>>>>>>>>>> IR 2 camera
 //         YAML::Node IR_2_node = ir_camera_node["IR_2"];
@@ -418,7 +419,7 @@ struct ConfigParser{
 //         for (int i = 0; i < IR_2_node["T_camIR1_camIR2"].size(); ++i) {
 //             v_temp.emplace_back(IR_2_node["T_camIR1_camIR2"][i].as<double>());
 //         }
-//         convert_Eiegn_4d(cameraD.ir_camera.cam2.T_camIR1_camIR2, v_temp);
+//         convert_Eigen_4d(cameraD.ir_camera.cam2.T_camIR1_camIR2, v_temp);
 //         ///<<<<<<<<<<<<<<< IR 2 camera
 //         ///<<<<<<<<<<<<<<< ir camera
 //         std::cout << "Finish parse cameraD <<<< " << std::endl;
@@ -429,7 +430,7 @@ struct ConfigParser{
         for (int i = 0; i < file_node["T_cam_image"].size(); ++i) {
             v_temp.emplace_back(file_node["T_cam_image"][i].as<double>());
         }
-        convert_Eiegn_4d(T_cam_image, v_temp);
+        convert_Eigen_4d(T_cam_image, v_temp);
         ///================= T_cam_image =================///
         std::cout << "Finish parse T_cam_image <<<< " << std::endl;
 
@@ -439,9 +440,19 @@ struct ConfigParser{
         for (int i = 0; i < file_node["T_imu_t265"].size(); ++i) {
             v_temp.emplace_back(file_node["T_imu_t265"][i].as<double>());
         }
-        convert_Eiegn_4d(T_imu_t265, v_temp);
+        convert_Eigen_4d(T_imu_t265, v_temp);
         ///================= T_imu_t265 =================///
         std::cout << "Finish parse T_imu_t265 <<<< " << std::endl;
+
+        std::cout << "Start parse Vicon_correction >>>> " << std::endl;
+        ///================= Vicon_correction =================///
+        v_temp.clear();
+        for (int i = 0; i < file_node["Vicon_correction"].size(); ++i) {
+            v_temp.emplace_back(file_node["Vicon_correction"][i].as<double>());
+        }
+        convert_Eigen_3d(Vicon_correction, v_temp);
+        ///================= Vicon_correction =================///
+        std::cout << "Finish parse Vicon_correction <<<< " << std::endl;
 
 
         std::cout << "Start parse imu >>>> " << std::endl;
@@ -458,7 +469,7 @@ struct ConfigParser{
         for (int i = 0; i < marker_node["T_boby_marker"].size(); ++i) {
             v_temp.emplace_back(marker_node["T_boby_marker"][i].as<double>());
         }
-        convert_Eiegn_4d(marker.T_boby_marker, v_temp);
+        convert_Eigen_4d(marker.T_boby_marker, v_temp);
         std::cout << "Finish parse marker <<<< " << std::endl;
 
         std::cout << "Start parse IRLandmarker >>>> " << std::endl;
@@ -479,15 +490,25 @@ struct ConfigParser{
         for (int i = 0; i < IRLandmarker_node["T_marker_IRLandmark"].size(); ++i) {
             v_temp.emplace_back(IRLandmarker_node["T_marker_IRLandmark"][i].as<double>());
         }
-        convert_Eiegn_4d(ir_landmark.T_marker_IRLandmark, v_temp);
+        convert_Eigen_4d(ir_landmark.T_marker_IRLandmark, v_temp);
         std::cout << "Finish parse IRLandmarker <<<< " << std::endl;
     }
 
 
-    void convert_Eiegn_4d(Eigen::Matrix4d &m, std::vector<double> &vec){
+    void convert_Eigen_4d(Eigen::Matrix4d &m, std::vector<double> &vec){
         int k = 0;
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
+                m(i,j) = vec[k];
+                k++;
+            }
+        }
+    }
+
+    void convert_Eigen_3d(Eigen::Matrix3d &m, std::vector<double> &vec){
+        int k = 0;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
                 m(i,j) = vec[k];
                 k++;
             }
