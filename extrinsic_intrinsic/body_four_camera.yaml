@@ -1,7 +1,7 @@
 %YAML:1.0
 ---
 uav_name: "kun0"
-Origin_location: "body"
+Origin_location: "base"
 
 cameraA:
   serial_no: "037322251575"
@@ -15,14 +15,6 @@ cameraA:
     cy: 239.6370849609375
     distortion_model: "plumb_bob"
     D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
-    T_body_camColor: [1, 0, 0, 0,
-                     0, 1, 0, 0,
-                     0, 0, 1, 0,
-                     0, 0, 0, 1]
-    # T_body_camColor: [1, 0, 0, 0.045,
-    #                  0, 1, 0, -0.0125,
-    #                  0, 0, 1, 0.0,
-    #                  0, 0, 0, 1]
 
   ir_camera:
     name: "D455_IR_CAM"
@@ -55,149 +47,137 @@ cameraA:
                         0, 0, 1, 0,
                         0, 0, 0, 1 ]
 
-# cameraB:
-#   serial_no: "037322251575"
-#   color_camera:
-#     name: "D455_COLOR_CAM"
-#     image_width: 640
-#     image_height: 480
-#     fx: 381.7646789550781
-#     fy: 380.9313049316406
-#     cx: 317.666748046875
-#     cy: 239.6370849609375
-#     distortion_model: "plumb_bob"
-#     D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
-#     T_imu_camColor: [1, 0, 0, 0.045,
-#                      0, 1, 0, -0.0125,
-#                      0, 0, 1, 0.0,
-#                      0, 0, 0, 1]
+cameraB:
+  serial_no: "037322251575"
+  color_camera:
+    name: "D455_COLOR_CAM"
+    image_width: 640
+    image_height: 480
+    fx: 381.7646789550781
+    fy: 380.9313049316406
+    cx: 317.666748046875
+    cy: 239.6370849609375
+    distortion_model: "plumb_bob"
+    D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
 
-#   ir_camera:
-#     name: "D455_IR_CAM"
-#     IR_1:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [0.0, 0.0, 0.0, 0.0, 0.0]
-#       # ENU坐标系 front x left y up z
-#       T_camColor_camIR1:  [ 1, 0, 0, 0,
-#                             0, 1, 0, 0.0591,
-#                             0, 0, 1, 0,
-#                             0.000, 0.000, 0.000, 1.000 ]
-#     IR_2:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
-#       # ENU坐标系 front x left y up z
-#       T_camIR1_camIR2:  [ 1, 0, 0, 0,
-#                         0, 1, 0, -0.0952,
-#                         0, 0, 1, 0,
-#                         0, 0, 0, 1 ]
+  ir_camera:
+    name: "D455_IR_CAM"
+    IR_1:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [0.0, 0.0, 0.0, 0.0, 0.0]
+      # ENU坐标系 front x left y up z
+      T_camColor_camIR1:  [ 1, 0, 0, 0,
+                            0, 1, 0, 0.0591,
+                            0, 0, 1, 0,
+                            0.000, 0.000, 0.000, 1.000 ]
+    IR_2:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+      # ENU坐标系 front x left y up z
+      T_camIR1_camIR2:  [ 1, 0, 0, 0,
+                        0, 1, 0, -0.0952,
+                        0, 0, 1, 0,
+                        0, 0, 0, 1 ]
 
-# cameraC:
-#   serial_no: "037322251575"
-#   color_camera:
-#     name: "D455_COLOR_CAM"
-#     image_width: 640
-#     image_height: 480
-#     fx: 381.7646789550781
-#     fy: 380.9313049316406
-#     cx: 317.666748046875
-#     cy: 239.6370849609375
-#     distortion_model: "plumb_bob"
-#     D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
-#     T_imu_camColor: [1, 0, 0, 0.045,
-#                      0, 1, 0, -0.0125,
-#                      0, 0, 1, 0.0,
-#                      0, 0, 0, 1]
+cameraC:
+  serial_no: "037322251575"
+  color_camera:
+    name: "D455_COLOR_CAM"
+    image_width: 640
+    image_height: 480
+    fx: 381.7646789550781
+    fy: 380.9313049316406
+    cx: 317.666748046875
+    cy: 239.6370849609375
+    distortion_model: "plumb_bob"
+    D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
 
-#   ir_camera:
-#     name: "D455_IR_CAM"
-#     IR_1:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [0.0, 0.0, 0.0, 0.0, 0.0]
-#       # ENU坐标系 front x left y up z
-#       T_camColor_camIR1:  [ 1, 0, 0, 0,
-#                             0, 1, 0, 0.0591,
-#                             0, 0, 1, 0,
-#                             0.000, 0.000, 0.000, 1.000 ]
-#     IR_2:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
-#       # ENU坐标系 front x left y up z
-#       T_camIR1_camIR2:  [ 1, 0, 0, 0,
-#                         0, 1, 0, -0.0952,
-#                         0, 0, 1, 0,
-#                         0, 0, 0, 1 ]
+  ir_camera:
+    name: "D455_IR_CAM"
+    IR_1:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [0.0, 0.0, 0.0, 0.0, 0.0]
+      # ENU坐标系 front x left y up z
+      T_camColor_camIR1:  [ 1, 0, 0, 0,
+                            0, 1, 0, 0.0591,
+                            0, 0, 1, 0,
+                            0.000, 0.000, 0.000, 1.000 ]
+    IR_2:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+      # ENU坐标系 front x left y up z
+      T_camIR1_camIR2:  [ 1, 0, 0, 0,
+                        0, 1, 0, -0.0952,
+                        0, 0, 1, 0,
+                        0, 0, 0, 1 ]
 
-# cameraD:
-#   serial_no: "037322251575"
-#   color_camera:
-#     name: "D455_COLOR_CAM"
-#     image_width: 640
-#     image_height: 480
-#     fx: 381.7646789550781
-#     fy: 380.9313049316406
-#     cx: 317.666748046875
-#     cy: 239.6370849609375
-#     distortion_model: "plumb_bob"
-#     D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
-#     T_imu_camColor: [1, 0, 0, 0.045,
-#                      0, 1, 0, -0.0125,
-#                      0, 0, 1, 0.0,
-#                      0, 0, 0, 1]
+cameraD:
+  serial_no: "037322251575"
+  color_camera:
+    name: "D455_COLOR_CAM"
+    image_width: 640
+    image_height: 480
+    fx: 381.7646789550781
+    fy: 380.9313049316406
+    cx: 317.666748046875
+    cy: 239.6370849609375
+    distortion_model: "plumb_bob"
+    D: [-0.0537783, 0.0611120, 0.0004679, -0.0003762, -0.0190100]
 
-#   ir_camera:
-#     name: "D455_IR_CAM"
-#     IR_1:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [0.0, 0.0, 0.0, 0.0, 0.0]
-#       # ENU坐标系 front x left y up z
-#       T_camColor_camIR1:  [ 1, 0, 0, 0,
-#                             0, 1, 0, 0.0591,
-#                             0, 0, 1, 0,
-#                             0.000, 0.000, 0.000, 1.000 ]
-#     IR_2:
-#       image_width: 640
-#       image_height: 480
-#       fx: 389.8620910644531
-#       fy: 389.8620910644531
-#       cx: 315.6733703613281
-#       cy: 240.7991943359375
-#       distortion_model: "plumb_bob"
-#       D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
-#       # ENU坐标系 front x left y up z
-#       T_camIR1_camIR2:  [ 1, 0, 0, 0,
-#                         0, 1, 0, -0.0952,
-#                         0, 0, 1, 0,
-#                         0, 0, 0, 1 ]                
+  ir_camera:
+    name: "D455_IR_CAM"
+    IR_1:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [0.0, 0.0, 0.0, 0.0, 0.0]
+      # ENU坐标系 front x left y up z
+      T_camColor_camIR1:  [ 1, 0, 0, 0,
+                            0, 1, 0, 0.0591,
+                            0, 0, 1, 0,
+                            0.000, 0.000, 0.000, 1.000 ]
+    IR_2:
+      image_width: 640
+      image_height: 480
+      fx: 389.8620910644531
+      fy: 389.8620910644531
+      cx: 315.6733703613281
+      cy: 240.7991943359375
+      distortion_model: "plumb_bob"
+      D: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+      # ENU坐标系 front x left y up z
+      T_camIR1_camIR2:  [ 1, 0, 0, 0,
+                        0, 1, 0, -0.0952,
+                        0, 0, 1, 0,
+                        0, 0, 0, 1 ]            
 
 
 #image坐标系转为enu的cam坐标系 需要左乘 T_cam_image
@@ -215,7 +195,7 @@ imu:
 
 Marker:
   marker_type: "xyz-stick-top"
-  T_body_marker: [1, 0, 0, 0,
+  T_base_marker: [1, 0, 0, 0,
                  0, 1, 0, -0.0375,
                  0, 0, 1, 0.06,
                  0, 0, 0, 1]
@@ -227,10 +207,10 @@ IRLandmark:
             -363.0, 0.0, 0.0,
             367.0,  0.0, 0.0,
             0.0,    630.0, 0.0]
-  T_marker_IRLandmark: [ 0, -1, 0, -0.212,
-                         -1, 0, 0, 0,
-                         0, 0, -1, 0,
-                         0, 0, 0, 1 ]
+  T_drone_IRLandmark: [ 0, -1,  0, -0.212,
+                       -1,  0,  0,  0,
+                        0,  0, -1,  0,
+                        0,  0,  0,  1 ]
 
 Vicon_correction: [0, 0 , 1,
                    0, 1, 0, 
