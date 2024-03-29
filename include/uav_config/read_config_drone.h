@@ -506,130 +506,130 @@ struct ConfigParser{
         }
     }
 
-    void print_all(){
-        print_config_cameraA();
-        print_config_cameraB();
-        print_config_cameraC();
-        print_config_cameraD();
-        print_config_cam2image();
-        print_config_imu();
-        print_config_marker();
-        print_config_IRLandmark();
-    }
+    // void print_all(){
+    //     print_config_cameraA();
+    //     print_config_cameraB();
+    //     print_config_cameraC();
+    //     print_config_cameraD();
+    //     print_config_cam2image();
+    //     print_config_imu();
+    //     print_config_marker();
+    //     print_config_IRLandmark();
+    // }
 
-    void print_config_cameraA(){
-        std::cout << "///============== cameraA =================///" << std::endl;
-        std::cout << "serial_no: " << cameraA.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraA.color_camera.fx << "\tfy: " << cameraA.color_camera.fy <<
-        "\tcx: " << cameraA.color_camera.cx << "\tcy: " << cameraA.color_camera.cy << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraA(){
+    //     std::cout << "///============== cameraA =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraA.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraA.color_camera.fx << "\tfy: " << cameraA.color_camera.fy <<
+    //     "\tcx: " << cameraA.color_camera.cx << "\tcy: " << cameraA.color_camera.cy << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraA.ir_camera.cam1.fx << "\tfy: " << cameraA.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraA.ir_camera.cam1.cx << "\tcy: " << cameraA.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraA.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraA.ir_camera.cam1.fx << "\tfy: " << cameraA.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraA.ir_camera.cam1.cx << "\tcy: " << cameraA.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraA.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraA.ir_camera.cam2.fx << "\tfy: " << cameraA.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraA.ir_camera.cam2.cx << "\tcy: " << cameraA.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraA.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraA.ir_camera.cam2.fx << "\tfy: " << cameraA.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraA.ir_camera.cam2.cx << "\tcy: " << cameraA.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraA.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cameraB(){
-        std::cout << "///============== cameraB =================///" << std::endl;
-        std::cout << "serial_no: " << cameraB.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.color_camera.fx << "\tfy: " << cameraB.color_camera.fy <<
-        "\tcx: " << cameraB.color_camera.cx << "\tcy: " << cameraB.color_camera.cy << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraB(){
+    //     std::cout << "///============== cameraB =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraB.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.color_camera.fx << "\tfy: " << cameraB.color_camera.fy <<
+    //     "\tcx: " << cameraB.color_camera.cx << "\tcy: " << cameraB.color_camera.cy << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.ir_camera.cam1.fx << "\tfy: " << cameraB.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraB.ir_camera.cam1.cx << "\tcy: " << cameraB.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraB.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.ir_camera.cam1.fx << "\tfy: " << cameraB.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraB.ir_camera.cam1.cx << "\tcy: " << cameraB.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraB.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraB.ir_camera.cam2.fx << "\tfy: " << cameraB.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraB.ir_camera.cam2.cx << "\tcy: " << cameraB.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraB.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraB.ir_camera.cam2.fx << "\tfy: " << cameraB.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraB.ir_camera.cam2.cx << "\tcy: " << cameraB.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraB.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cameraC(){
-        std::cout << "///============== cameraC =================///" << std::endl;
-        std::cout << "serial_no: " << cameraC.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.color_camera.fx << "\tfy: " << cameraC.color_camera.fy <<
-        "\tcx: " << cameraC.color_camera.cx << "\tcy: " << cameraC.color_camera.cy << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraC(){
+    //     std::cout << "///============== cameraC =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraC.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.color_camera.fx << "\tfy: " << cameraC.color_camera.fy <<
+    //     "\tcx: " << cameraC.color_camera.cx << "\tcy: " << cameraC.color_camera.cy << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.ir_camera.cam1.fx << "\tfy: " << cameraC.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraC.ir_camera.cam1.cx << "\tcy: " << cameraC.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraC.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.ir_camera.cam1.fx << "\tfy: " << cameraC.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraC.ir_camera.cam1.cx << "\tcy: " << cameraC.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraC.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraC.ir_camera.cam2.fx << "\tfy: " << cameraC.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraC.ir_camera.cam2.cx << "\tcy: " << cameraC.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraC.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraC.ir_camera.cam2.fx << "\tfy: " << cameraC.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraC.ir_camera.cam2.cx << "\tcy: " << cameraC.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraC.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cameraD(){
-        std::cout << "///============== cameraD =================///" << std::endl;
-        std::cout << "serial_no: " << cameraD.serial_no.c_str() << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.color_camera.fx << "\tfy: " << cameraD.color_camera.fy <<
-        "\tcx: " << cameraD.color_camera.cx << "\tcy: " << cameraD.color_camera.cy << std::endl;
-        std::cout << std::endl;
+    // void print_config_cameraD(){
+    //     std::cout << "///============== cameraD =================///" << std::endl;
+    //     std::cout << "serial_no: " << cameraD.serial_no.c_str() << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> color camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.color_camera.fx << "\tfy: " << cameraD.color_camera.fy <<
+    //     "\tcx: " << cameraD.color_camera.cx << "\tcy: " << cameraD.color_camera.cy << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.ir_camera.cam1.fx << "\tfy: " << cameraD.ir_camera.cam1.fy <<
-                  "\tcx: " << cameraD.ir_camera.cam1.cx << "\tcy: " << cameraD.ir_camera.cam1.cy << std::endl;
-        std::cout << "T_camColor_camIR1: " << std::endl << cameraD.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
-        std::cout << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 1 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.ir_camera.cam1.fx << "\tfy: " << cameraD.ir_camera.cam1.fy <<
+    //               "\tcx: " << cameraD.ir_camera.cam1.cx << "\tcy: " << cameraD.ir_camera.cam1.cy << std::endl;
+    //     std::cout << "T_camColor_camIR1: " << std::endl << cameraD.ir_camera.cam1.T_camColor_camIR1.matrix() << std::endl;
+    //     std::cout << std::endl;
 
-        std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
-        std::cout << "fx: " << cameraD.ir_camera.cam2.fx << "\tfy: " << cameraD.ir_camera.cam2.fy <<
-                  "\tcx: " << cameraD.ir_camera.cam2.cx << "\tcy: " << cameraD.ir_camera.cam2.cy << std::endl;
-        std::cout << "T_camIR1_camIR2: " << std::endl << cameraD.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    //     std::cout << "///>>>>>>>>>>>>>> ir camera 2 >>>>>>>>>>>>>>>>>///" << std::endl;
+    //     std::cout << "fx: " << cameraD.ir_camera.cam2.fx << "\tfy: " << cameraD.ir_camera.cam2.fy <<
+    //               "\tcx: " << cameraD.ir_camera.cam2.cx << "\tcy: " << cameraD.ir_camera.cam2.cy << std::endl;
+    //     std::cout << "T_camIR1_camIR2: " << std::endl << cameraD.ir_camera.cam2.T_camIR1_camIR2.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_cam2image(){
-        std::cout << "///============== T_cam_image =================///" << std::endl;
-        std::cout << "T_cam_image: " << std::endl << T_cam_image.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    // void print_config_cam2image(){
+    //     std::cout << "///============== T_cam_image =================///" << std::endl;
+    //     std::cout << "T_cam_image: " << std::endl << T_cam_image.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_imu(){
-        std::cout << "///============== imu =================///" << std::endl;
-        std::cout << "imu_name: " << std::endl << imu.imu_name << std::endl;
-        std::cout << std::endl;
-    }
+    // void print_config_imu(){
+    //     std::cout << "///============== imu =================///" << std::endl;
+    //     std::cout << "imu_name: " << std::endl << imu.imu_name << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_marker(){
-        std::cout << "///============== marker =================///" << std::endl;
-        std::cout << "T_base_marker: " << std::endl << marker.T_base_marker.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    // void print_config_marker(){
+    //     std::cout << "///============== marker =================///" << std::endl;
+    //     std::cout << "T_base_marker: " << std::endl << marker.T_base_marker.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
-    void print_config_IRLandmark(){
-        std::cout << "///============== IRLandmark =================///" << std::endl;
-        std::cout << "layout_name: \t" << ir_landmark.layout_name << std::endl;
-        std::cout << "layout: \n" << ir_landmark.layout.matrix() << std::endl;
-        std::cout << "T_drone_IRLandmark: \n" << ir_landmark.T_drone_IRLandmark.matrix() << std::endl;
-        std::cout << std::endl;
-    }
+    // void print_config_IRLandmark(){
+    //     std::cout << "///============== IRLandmark =================///" << std::endl;
+    //     std::cout << "layout_name: \t" << ir_landmark.layout_name << std::endl;
+    //     std::cout << "layout: \n" << ir_landmark.layout.matrix() << std::endl;
+    //     std::cout << "T_drone_IRLandmark: \n" << ir_landmark.T_drone_IRLandmark.matrix() << std::endl;
+    //     std::cout << std::endl;
+    // }
 
 
 };
