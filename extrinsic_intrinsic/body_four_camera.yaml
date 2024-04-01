@@ -4,7 +4,7 @@ uav_name: "kun0"
 Origin_location: "base"
 
 cameraA:
-  serial_no: "037322251575"
+  serial_no: "215122251478"
   color_camera:
     name: "D455_COLOR_CAM"
     image_width: 640
@@ -48,7 +48,7 @@ cameraA:
                         0, 0, 0, 1 ]
 
 cameraB:
-  serial_no: "037322251575"
+  serial_no: "053122251146"
   color_camera:
     name: "D455_COLOR_CAM"
     image_width: 640
@@ -92,7 +92,7 @@ cameraB:
                         0, 0, 0, 1 ]
 
 cameraC:
-  serial_no: "037322251575"
+  serial_no: "049122252265"
   color_camera:
     name: "D455_COLOR_CAM"
     image_width: 640
@@ -136,7 +136,7 @@ cameraC:
                         0, 0, 0, 1 ]
 
 cameraD:
-  serial_no: "037322251575"
+  serial_no: "327522300459"
   color_camera:
     name: "D455_COLOR_CAM"
     image_width: 640

@@ -148,15 +148,15 @@ struct ConfigParser{
     std::vector<double> v_temp;
 
     ConfigParser(const std::string& config_file){
-        std::cout << "Config file is " << config_file << std::endl;
+        // std::cout << "Config file is " << config_file << std::endl;
         if(!FileExists(config_file)){
-            std::cerr << "Config file " << config_file << " doesn't exist." << std::endl;
+            // std::cerr << "Config file " << config_file << " doesn't exist." << std::endl;
             return;
         }
         YAML::Node file_node = YAML::LoadFile(config_file);
 
         uav_name = file_node["uav_name"].as<std::string>();
-        std::cout << "Start parse cameraA >>>> " << std::endl;
+        // std::cout << "Start parse cameraA >>>> " << std::endl;
         ///================= cameraA parse =================///
         YAML::Node cameraA_node = file_node["cameraA"];
         cameraA.serial_no = cameraA_node["serial_no"].as<std::string>();
@@ -216,9 +216,9 @@ struct ConfigParser{
         convert_Eigen_4d(cameraA.ir_camera.cam2.T_camIR1_camIR2, v_temp);
         ///<<<<<<<<<<<<<<< IR 2 camera
         ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraA <<<< " << std::endl;
+        // std::cout << "Finish parse cameraA <<<< " << std::endl;
 
-        std::cout << "Start parse cameraB >>>> " << std::endl;
+        // std::cout << "Start parse cameraB >>>> " << std::endl;
         ///================= cameraB parse =================///
         YAML::Node cameraB_node = file_node["cameraB"];
         cameraB.serial_no = cameraB_node["serial_no"].as<std::string>();
@@ -278,9 +278,9 @@ struct ConfigParser{
         convert_Eigen_4d(cameraB.ir_camera.cam2.T_camIR1_camIR2, v_temp);
         ///<<<<<<<<<<<<<<< IR 2 camera
         ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraB <<<< " << std::endl;
+        // std::cout << "Finish parse cameraB <<<< " << std::endl;
 
-        std::cout << "Start parse cameraC >>>> " << std::endl;
+        // std::cout << "Start parse cameraC >>>> " << std::endl;
         ///================= cameraC parse =================///
         YAML::Node cameraC_node = file_node["cameraC"];
         cameraC.serial_no = cameraC_node["serial_no"].as<std::string>();
@@ -340,10 +340,10 @@ struct ConfigParser{
         convert_Eigen_4d(cameraC.ir_camera.cam2.T_camIR1_camIR2, v_temp);
         ///<<<<<<<<<<<<<<< IR 2 camera
         ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraC <<<< " << std::endl;
+        // std::cout << "Finish parse cameraC <<<< " << std::endl;
 
 
-        std::cout << "Start parse cameraD >>>> " << std::endl;
+        // std::cout << "Start parse cameraD >>>> " << std::endl;
         ///================= cameraD parse =================///
         YAML::Node cameraD_node = file_node["cameraD"];
         cameraD.serial_no = cameraD_node["serial_no"].as<std::string>();
@@ -403,9 +403,9 @@ struct ConfigParser{
         convert_Eigen_4d(cameraD.ir_camera.cam2.T_camIR1_camIR2, v_temp);
         ///<<<<<<<<<<<<<<< IR 2 camera
         ///<<<<<<<<<<<<<<< ir camera
-        std::cout << "Finish parse cameraD <<<< " << std::endl;
+        // std::cout << "Finish parse cameraD <<<< " << std::endl;
 
-        std::cout << "Start parse T_cam_image >>>> " << std::endl;
+        // std::cout << "Start parse T_cam_image >>>> " << std::endl;
         ///================= T_cam_image =================///
         v_temp.clear();
         for (int i = 0; i < file_node["T_cam_image"].size(); ++i) {
@@ -413,9 +413,9 @@ struct ConfigParser{
         }
         convert_Eigen_4d(T_cam_image, v_temp);
         ///================= T_cam_image =================///
-        std::cout << "Finish parse T_cam_image <<<< " << std::endl;
+        // std::cout << "Finish parse T_cam_image <<<< " << std::endl;
 
-        std::cout << "Start parse T_imu_t265 >>>> " << std::endl;
+        // std::cout << "Start parse T_imu_t265 >>>> " << std::endl;
         ///================= T_imu_t265 =================///
         v_temp.clear();
         for (int i = 0; i < file_node["T_imu_t265"].size(); ++i) {
@@ -423,9 +423,9 @@ struct ConfigParser{
         }
         convert_Eigen_4d(T_imu_t265, v_temp);
         ///================= T_imu_t265 =================///
-        std::cout << "Finish parse T_imu_t265 <<<< " << std::endl;
+        // std::cout << "Finish parse T_imu_t265 <<<< " << std::endl;
 
-        std::cout << "Start parse Vicon_correction >>>> " << std::endl;
+        // std::cout << "Start parse Vicon_correction >>>> " << std::endl;
         ///================= Vicon_correction =================///
         v_temp.clear();
         for (int i = 0; i < file_node["Vicon_correction"].size(); ++i) {
@@ -433,16 +433,16 @@ struct ConfigParser{
         }
         convert_Eigen_3d(Vicon_correction, v_temp);
         ///================= Vicon_correction =================///
-        std::cout << "Finish parse Vicon_correction <<<< " << std::endl;
+        // std::cout << "Finish parse Vicon_correction <<<< " << std::endl;
 
 
-        std::cout << "Start parse imu >>>> " << std::endl;
+        // std::cout << "Start parse imu >>>> " << std::endl;
         ///================= imu parse =================///
         YAML::Node imu_node = file_node["imu"];
         imu.imu_name = imu_node["imu_name"].as<std::string>();
-        std::cout << "Finish parse imu <<<< " << std::endl;
+        // std::cout << "Finish parse imu <<<< " << std::endl;
 
-        std::cout << "Start parse marker >>>> " << std::endl;
+        // std::cout << "Start parse marker >>>> " << std::endl;
         ///================= marker parse =================///
         YAML::Node marker_node = file_node["Marker"];
         marker.marker_type = marker_node["marker_type"].as<std::string>();
@@ -451,13 +451,13 @@ struct ConfigParser{
             v_temp.emplace_back(marker_node["T_base_marker"][i].as<double>());
         }
         convert_Eigen_4d(marker.T_base_marker, v_temp);
-        std::cout << "Finish parse marker <<<< " << std::endl;
+        // std::cout << "Finish parse marker <<<< " << std::endl;
 
-        std::cout << "Start parse IRLandmarker >>>> " << std::endl;
+        // std::cout << "Start parse IRLandmarker >>>> " << std::endl;
         ///================= IRlandmarker parse =================///
         YAML::Node IRLandmarker_node = file_node["IRLandmark"];
         ir_landmark.layout_name = IRLandmarker_node["layout_name"].as<std::string>();
-        std::cout << "Start layout >>>> " << std::endl;
+        // std::cout << "Start layout >>>> " << std::endl;
         v_temp.clear();
         for (int i = 0; i < IRLandmarker_node["layout"].size(); ++i) {
             v_temp.emplace_back(IRLandmarker_node["layout"][i].as<double>());
@@ -466,13 +466,13 @@ struct ConfigParser{
         //转为3行xN列的Eigen::Matrix3Xd
         ir_landmark.layout.resize(3, ir_landmark.number);
         convert_3xN(ir_landmark.layout, v_temp);
-        std::cout << "Start T_marker_IRLandmark >>>> " << std::endl;
+        // std::cout << "Start T_marker_IRLandmark >>>> " << std::endl;
         v_temp.clear();
         for (int i = 0; i < IRLandmarker_node["T_drone_IRLandmark"].size(); ++i) {
             v_temp.emplace_back(IRLandmarker_node["T_drone_IRLandmark"][i].as<double>());
         }
         convert_Eigen_4d(ir_landmark.T_drone_IRLandmark, v_temp);
-        std::cout << "Finish parse IRLandmarker <<<< " << std::endl;
+        // std::cout << "Finish parse IRLandmarker <<<< " << std::endl;
     }
 
 
