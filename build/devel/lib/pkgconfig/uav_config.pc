@@ -1,0 +1,8 @@
+prefix=/home/hezijia/catkin_ws/src/uav_config/build/devel
+
+Name: uav_config
+Description: Description of uav_config
+Version: 0.0.0
+Cflags: -I/home/hezijia/catkin_ws/src/uav_config/include -I/home/hezijia/catkin_ws/src/uav_config/types
+Libs: -L${prefix}/lib 
+Requires: 

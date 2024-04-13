@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: uav_config
+Description: Description of uav_config
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 
