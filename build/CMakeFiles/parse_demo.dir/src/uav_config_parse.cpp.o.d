@@ -1,7 +1,7 @@
 CMakeFiles/parse_demo.dir/src/uav_config_parse.cpp.o: \
- /home/hezijia/catkin_ws/src/uav_config/src/uav_config_parse.cpp \
+ /home/hezijia/catkin_ws/src/uavconfig/src/uav_config_parse.cpp \
  /usr/include/stdc-predef.h \
- /home/hezijia/catkin_ws/src/uav_config/include/uav_config/read_config_drone.h \
+ /home/hezijia/catkin_ws/src/uavconfig/include/uav_config/read_config_drone.h \
  /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \

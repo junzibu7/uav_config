@@ -1,4 +1,4 @@
-# Install script for directory: /home/hezijia/catkin_ws/src/uav_config
+# Install script for directory: /home/hezijia/catkin_ws/src/uavconfig
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -61,7 +61,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/_setup_util.py")
+  file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -73,7 +73,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/env.sh")
+  file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/env.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -86,8 +86,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/setup.bash"
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/local_setup.bash"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/setup.bash"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
@@ -101,8 +101,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/setup.sh"
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/local_setup.sh"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/setup.sh"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
@@ -116,8 +116,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/setup.zsh"
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/local_setup.zsh"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/setup.zsh"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
@@ -130,27 +130,27 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/.rosinstall")
+  file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/uav_config.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/uav_config.pc")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_config/cmake" TYPE FILE FILES
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/uav_configConfig.cmake"
-    "/home/hezijia/catkin_ws/src/uav_config/build/catkin_generated/installspace/uav_configConfig-version.cmake"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/uav_configConfig.cmake"
+    "/home/hezijia/catkin_ws/src/uavconfig/build/catkin_generated/installspace/uav_configConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_config" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uav_config/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_config" TYPE FILE FILES "/home/hezijia/catkin_ws/src/uavconfig/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/hezijia/catkin_ws/src/uav_config/build/gtest/cmake_install.cmake")
+  include("/home/hezijia/catkin_ws/src/uavconfig/build/gtest/cmake_install.cmake")
 
 endif()
 
@@ -162,5 +162,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/hezijia/catkin_ws/src/uav_config/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hezijia/catkin_ws/src/uavconfig/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

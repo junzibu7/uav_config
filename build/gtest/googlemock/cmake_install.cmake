@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/hezijia/catkin_ws/src/uav_config/build/gtest/googletest/cmake_install.cmake")
+  include("/home/hezijia/catkin_ws/src/uavconfig/build/gtest/googletest/cmake_install.cmake")
 
 endif()
 

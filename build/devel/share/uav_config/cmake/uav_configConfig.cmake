@@ -67,8 +67,8 @@ set(uav_config_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(uav_config_SOURCE_PREFIX /home/hezijia/catkin_ws/src/uav_config)
-  set(uav_config_DEVEL_PREFIX /home/hezijia/catkin_ws/src/uav_config/build/devel)
+  set(uav_config_SOURCE_PREFIX /home/hezijia/catkin_ws/src/uavconfig)
+  set(uav_config_DEVEL_PREFIX /home/hezijia/catkin_ws/src/uavconfig/build/devel)
   set(uav_config_INSTALL_PREFIX "")
   set(uav_config_PREFIX ${uav_config_DEVEL_PREFIX})
 else()
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(uav_config_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/hezijia/catkin_ws/src/uav_config/include;/home/hezijia/catkin_ws/src/uav_config/types " STREQUAL " ")
+if(NOT "/home/hezijia/catkin_ws/src/uavconfig/include;/home/hezijia/catkin_ws/src/uavconfig/types " STREQUAL " ")
   set(uav_config_INCLUDE_DIRS "")
-  set(_include_dirs "/home/hezijia/catkin_ws/src/uav_config/include;/home/hezijia/catkin_ws/src/uav_config/types")
+  set(_include_dirs "/home/hezijia/catkin_ws/src/uavconfig/include;/home/hezijia/catkin_ws/src/uavconfig/types")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/hezijia/catkin_ws/src/uav_config/include;/home/hezijia/catkin_ws/s
         message(FATAL_ERROR "Project 'uav_config' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'uav_config' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/hezijia/catkin_ws/src/uav_config/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'uav_config' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/hezijia/catkin_ws/src/uavconfig/${idir}'.  ${_report}")
     endif()
     _list_append_unique(uav_config_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/hezijia/catkin_ws/src/uav_config/build/devel/lib;/home/hezijia/catkin_ws/devel/lib;/home/hezijia/tool_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/hezijia/catkin_ws/src/uavconfig/build/devel/lib;/home/hezijia/catkin_ws/devel/lib;/home/hezijia/tool_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

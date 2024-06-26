@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/hezijia/catkin_ws/src/uav_config/build/devel/setup.sh
+    local-name: /home/hezijia/catkin_ws/src/uavconfig/build/devel/setup.sh

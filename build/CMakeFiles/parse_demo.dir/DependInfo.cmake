@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/hezijia/catkin_ws/src/uav_config/src/uav_config_parse.cpp" "CMakeFiles/parse_demo.dir/src/uav_config_parse.cpp.o" "gcc" "CMakeFiles/parse_demo.dir/src/uav_config_parse.cpp.o.d"
+  "/home/hezijia/catkin_ws/src/uavconfig/src/uav_config_parse.cpp" "CMakeFiles/parse_demo.dir/src/uav_config_parse.cpp.o" "gcc" "CMakeFiles/parse_demo.dir/src/uav_config_parse.cpp.o.d"
   )
 
 # Targets to which this target links.

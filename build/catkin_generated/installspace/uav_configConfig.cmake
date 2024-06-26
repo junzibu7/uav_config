@@ -67,8 +67,8 @@ set(uav_config_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(uav_config_SOURCE_PREFIX /home/hezijia/catkin_ws/src/uav_config)
-  set(uav_config_DEVEL_PREFIX /home/hezijia/catkin_ws/src/uav_config/build/devel)
+  set(uav_config_SOURCE_PREFIX /home/hezijia/catkin_ws/src/uavconfig)
+  set(uav_config_DEVEL_PREFIX /home/hezijia/catkin_ws/src/uavconfig/build/devel)
   set(uav_config_INSTALL_PREFIX "")
   set(uav_config_PREFIX ${uav_config_DEVEL_PREFIX})
 else()

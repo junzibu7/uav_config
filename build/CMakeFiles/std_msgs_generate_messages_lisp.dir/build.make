@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hezijia/catkin_ws/src/uav_config
+CMAKE_SOURCE_DIR = /home/hezijia/catkin_ws/src/uavconfig
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hezijia/catkin_ws/src/uav_config/build
+CMAKE_BINARY_DIR = /home/hezijia/catkin_ws/src/uavconfig/build
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -78,6 +78,6 @@ CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /home/hezijia/catkin_ws/src/uav_config/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hezijia/catkin_ws/src/uav_config /home/hezijia/catkin_ws/src/uav_config /home/hezijia/catkin_ws/src/uav_config/build /home/hezijia/catkin_ws/src/uav_config/build /home/hezijia/catkin_ws/src/uav_config/build/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hezijia/catkin_ws/src/uavconfig/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hezijia/catkin_ws/src/uavconfig /home/hezijia/catkin_ws/src/uavconfig /home/hezijia/catkin_ws/src/uavconfig/build /home/hezijia/catkin_ws/src/uavconfig/build /home/hezijia/catkin_ws/src/uavconfig/build/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 

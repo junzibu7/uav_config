@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/hezijia/catkin_ws/src/uav_config/CMakeLists.txt"
+  "/home/hezijia/catkin_ws/src/uavconfig/CMakeLists.txt"
   "CMakeFiles/3.25.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.25.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.25.2/CMakeSystem.cmake"
@@ -15,7 +15,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin_generated/installspace/_setup_util.py"
   "catkin_generated/ordered_paths.cmake"
   "catkin_generated/package.cmake"
-  "/home/hezijia/catkin_ws/src/uav_config/package.xml"
+  "/home/hezijia/catkin_ws/src/uavconfig/package.xml"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
